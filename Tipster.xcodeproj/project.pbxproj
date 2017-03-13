@@ -13,6 +13,7 @@
 		2B917A471E71232B007491A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B917A461E71232B007491A8 /* Assets.xcassets */; };
 		2B917A4A1E71232B007491A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B917A481E71232B007491A8 /* LaunchScreen.storyboard */; };
 		2B917A551E71232B007491A8 /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B917A541E71232B007491A8 /* TipsterTests.swift */; };
+		2B954F781E76326900E03C64 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B954F771E76326900E03C64 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		2B917A501E71232B007491A8 /* TipsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B917A541E71232B007491A8 /* TipsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterTests.swift; sourceTree = "<group>"; };
 		2B917A561E71232B007491A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B954F771E76326900E03C64 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2B917A461E71232B007491A8 /* Assets.xcassets */,
 				2B917A481E71232B007491A8 /* LaunchScreen.storyboard */,
 				2B917A4B1E71232B007491A8 /* Info.plist */,
+				2B954F771E76326900E03C64 /* SettingsViewController.swift */,
 			);
 			path = Tipster;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				2B917A421E71232B007491A8 /* ViewController.swift in Sources */,
 				2B917A401E71232B007491A8 /* AppDelegate.swift in Sources */,
+				2B954F781E76326900E03C64 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,6 +410,7 @@
 				2B917A5B1E71232B007491A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2B917A5C1E71232B007491A8 /* Build configuration list for PBXNativeTarget "TipsterTests" */ = {
 			isa = XCConfigurationList;
@@ -414,6 +419,7 @@
 				2B917A5E1E71232B007491A8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
