@@ -135,7 +135,7 @@
                     <navigationItem key="navigationItem" title="Tip Calculator" id="tVT-Tj-SYD">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="gdS-So-B12">
                             <connections>
-                                <segue destination="bt6-Xc-Lej" kind="push" id="Ha0-s4-F8A"/>
+                                <segue destination="bt6-Xc-Lej" kind="push" id="4qB-oh-fot"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="672" y="152"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="oTD-IS-GIc">
             <objects>
-                <viewController id="bt6-Xc-Lej" sceneMemberID="viewController">
+                <viewController id="bt6-Xc-Lej" customClass="SettingsViewController" customModule="Tipster" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E2J-Jj-AKG"/>
                         <viewControllerLayoutGuide type="bottom" id="bY2-JO-OcV"/>
@@ -187,23 +187,83 @@
                                     <segment title="25%"/>
                                 </segments>
                                 <connections>
-                                    <action selector="tipControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ycV-iT-K6X"/>
+                                    <action selector="saveDefaultSelected:" destination="bt6-Xc-Lej" eventType="valueChanged" id="6ix-Sp-NWQ"/>
                                 </connections>
                             </segmentedControl>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ccd-tT-itE">
+                                <rect key="frame" x="50" y="220" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="olL-3F-gBg"/>
+                                    <constraint firstAttribute="height" constant="30" id="zOI-SU-gTz"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="setNewArray" destination="bt6-Xc-Lej" eventType="editingDidEnd" id="pAn-Rk-NOx"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="trx-EV-Clz">
+                                <rect key="frame" x="160" y="220" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="OyN-Mb-BzN"/>
+                                    <constraint firstAttribute="height" constant="30" id="aU2-1X-1FP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="setNewArray" destination="bt6-Xc-Lej" eventType="editingDidEnd" id="LE7-M5-bLU"/>
+                                </connections>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Pte-JW-qws">
+                                <rect key="frame" x="270" y="220" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Eif-X0-smt"/>
+                                    <constraint firstAttribute="height" constant="30" id="uDm-NJ-bh2"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="setNewArray" destination="bt6-Xc-Lej" eventType="editingDidEnd" id="dUp-RG-aUg"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="ccd-tT-itE" firstAttribute="top" secondItem="e82-LH-4yj" secondAttribute="bottom" constant="40" id="3eM-AO-gDn"/>
                             <constraint firstItem="tB1-GS-MJA" firstAttribute="top" secondItem="PGT-wZ-xtl" secondAttribute="top" constant="100" id="5YY-9X-nsg"/>
                             <constraint firstAttribute="trailing" secondItem="tB1-GS-MJA" secondAttribute="trailing" constant="50" id="6h8-UG-iH7"/>
+                            <constraint firstItem="trx-EV-Clz" firstAttribute="leading" secondItem="ccd-tT-itE" secondAttribute="trailing" constant="10" id="FwJ-Ka-6fZ"/>
                             <constraint firstItem="e82-LH-4yj" firstAttribute="top" secondItem="tB1-GS-MJA" secondAttribute="bottom" constant="20" id="JCH-I3-lrV"/>
+                            <constraint firstItem="Pte-JW-qws" firstAttribute="leading" secondItem="trx-EV-Clz" secondAttribute="trailing" constant="10" id="OFN-JY-qfN"/>
+                            <constraint firstItem="ccd-tT-itE" firstAttribute="leading" secondItem="PGT-wZ-xtl" secondAttribute="leading" constant="50" id="VNd-mV-Qdr"/>
+                            <constraint firstItem="trx-EV-Clz" firstAttribute="top" secondItem="e82-LH-4yj" secondAttribute="bottom" constant="40" id="k5n-te-1TP"/>
+                            <constraint firstItem="Pte-JW-qws" firstAttribute="top" secondItem="e82-LH-4yj" secondAttribute="bottom" constant="40" id="kNU-rM-07Q"/>
                             <constraint firstItem="tB1-GS-MJA" firstAttribute="leading" secondItem="PGT-wZ-xtl" secondAttribute="leading" constant="50" id="n0G-iP-Ol7"/>
                             <constraint firstItem="e82-LH-4yj" firstAttribute="leading" secondItem="PGT-wZ-xtl" secondAttribute="leading" constant="50" id="tBN-Af-aoo"/>
                             <constraint firstAttribute="trailing" secondItem="e82-LH-4yj" secondAttribute="trailing" constant="50" id="vSN-Om-aKB"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="6KH-QX-eQl" appends="YES" id="ilt-Ds-iHg"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="Nae-bF-tdm"/>
+                    <connections>
+                        <outlet property="firstSection" destination="trx-EV-Clz" id="sxQ-86-nRA"/>
+                        <outlet property="percentage" destination="e82-LH-4yj" id="LVe-wN-onK"/>
+                        <outlet property="secondSection" destination="Pte-JW-qws" id="Bc7-vz-dXG"/>
+                        <outlet property="zeroSection" destination="ccd-tT-itE" id="2D0-jJ-R6j"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cp4-qg-Hyb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6KH-QX-eQl">
+                    <connections>
+                        <action selector="dismiss:" destination="bt6-Xc-Lej" id="U7T-UB-uGZ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1230" y="152"/>
         </scene>

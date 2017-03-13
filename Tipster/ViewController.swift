@@ -17,7 +17,39 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        billField.becomeFirstResponder()
+
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.loadPreferences()
+        if billField != nil {
+            self.recalculateTip()
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        view.endEditing(true)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+    }
+    
+    fileprivate func loadPreferences() {
+        if tipControl != nil {
+            let selected = SettingsViewController.loadDefaultSelected()
+            tipControl.selectedSegmentIndex = selected
+            
+            let customArray = SettingsViewController.loadArrayDefaults()
+            for (index, element) in customArray.enumerated() {
+                tipControl.setTitle("\(element * 100)", forSegmentAt: index)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,7 +70,7 @@ class ViewController: UIViewController {
     }
     
     fileprivate func recalculateTip() {
-        let tipPercentages = [0.18, 0.2, 0.25]
+        let tipPercentages = SettingsViewController.loadArrayDefaults()
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
