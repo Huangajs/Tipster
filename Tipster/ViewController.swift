@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         billField.becomeFirstResponder()
 
         // Do any additional setup after loading the view, typically from a nib.
@@ -24,6 +25,7 @@ class ViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.loadPreferences()
+        loadPreviousBillAmount()
         if billField != nil {
             self.recalculateTip()
         }
@@ -56,6 +58,18 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func loadPreviousBillAmount(){
+        if let lastDate = UserDefaults.standard.object(forKey: "lastDate") as? Date {
+            if Date().timeIntervalSince(lastDate) < 600 {
+                if let lastAmount = UserDefaults.standard.object(forKey: "previousAmount") as? Double {
+                    billField.text = String(format: "%.2f", lastAmount)
+                }
+            } else {
+                billField.text = ""
+            }
+        }
+    }
 
     @IBAction func onTap(_ sender: Any) {
         view.endEditing(true)
@@ -74,8 +88,10 @@ class ViewController: UIViewController {
         let bill = Double(billField.text!) ?? 0
         let tip = bill * tipPercentages[tipControl.selectedSegmentIndex]
         let total = bill + tip
-        tipLabel.text = String(format: "$%.2f", tip)
-        totalLabel.text = String(format: "$%.2f", total)
+        tipLabel.text = NumberFormatter.localizedString(from: NSNumber(value: tip), number: NumberFormatter.Style.currency)
+        totalLabel.text = NumberFormatter.localizedString(from: NSNumber(value: total), number: NumberFormatter.Style.currency)
+        
+        UserDefaults.standard.set(bill, forKey: "previousAmount")
     }
 }
 
